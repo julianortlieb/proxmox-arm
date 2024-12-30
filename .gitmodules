@@ -1,0 +1,3 @@
+[submodule "pve-common"]
+	path = pve-common
+	url = https://github.com/proxmox/pve-common

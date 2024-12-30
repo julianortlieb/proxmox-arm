@@ -24,12 +24,27 @@ if [ "$(uname -m)" != "aarch64" ]; then
     exit 1
 fi
 
+# Update the package list
+title "Update the package list"
+apt-get update
+
+# Install devscripts
+title "Installing devscripts..."
+apt-get install -y devscripts
+
+# cd into the pve-common directory
+title "cd into the pve-common directory..."
+cd pve-common
+
+# Install the required packages
+title "Installing the required packages..."
+yes|mk-build-deps --install
+
 # Debugging
 ls
 
 # Build the package
 title "Building the package..."
-cd pve-common
 make deb
 
 # Debugging

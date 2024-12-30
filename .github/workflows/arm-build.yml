@@ -16,13 +16,12 @@ jobs:
       - name: Checkout code
         uses: actions/checkout@v2
 
+      - name: Get all submodules
+        run: git submodule update --init --recursive
+
       - name: Set up QEMU for ARM
         run: |
           docker run --rm --privileged multiarch/qemu-user-static --reset -p yes
-
-      - name: Install all required dependencies
-        run: |
-          docker run --rm --platform linux/arm64 -v ${{ github.workspace }}:/workspace -w /workspace debian:latest bash requirements.sh
 
       - name: Build the project
         run: |

@@ -24,10 +24,6 @@ if [ "$(uname -m)" != "aarch64" ]; then
     exit 1
 fi
 
-# Get all submodules
-title "Get all submodules..."
-git submodule update --init --recursive
-
 # Update the package list
 title "Update the package list"
 apt-get update

@@ -24,13 +24,20 @@ if [ "$(uname -m)" != "aarch64" ]; then
     exit 1
 fi
 
-# Debugging
-ls
+# Get all submodules
+title "Get all submodules..."
+git submodule update --init --recursive
 
-# Build the package
-title "Building the package..."
+# Update the package list
+title "Update the package list"
+apt-get update
+
+# Install devscripts
+title "Installing devscripts..."
+apt-get install -y devscripts
+
 cd pve-common
-make deb
 
-# Debugging
-ls
+# Install the required packages
+title "Installing the required packages..."
+yes|mk-build-deps --install

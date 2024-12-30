@@ -26,3 +26,12 @@ jobs:
       - name: Build the project
         run: |
           docker run --rm --platform linux/arm64 -v ${{ github.workspace }}:/workspace -w /workspace debian:latest bash build-arm.sh
+
+      - name: Upload the libpve.deb artifact
+        uses: actions/upload-artifact@v2
+        with:
+          name: pve-common.deb
+          path: ${{ github.workspace }}/pve-common/*.deb
+
+
+

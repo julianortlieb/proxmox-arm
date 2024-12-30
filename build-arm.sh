@@ -15,7 +15,7 @@ fi
 
 # Update the package list
 echo "Updating the package list..."
-pt-get update
+apt-get update
 
 # Install devscripts
 echo "Installing devscripts..."

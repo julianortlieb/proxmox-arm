@@ -15,7 +15,11 @@ fi
 
 # Update the package list
 echo "Updating the package list..."
-sudo apt-get update
+pt-get update
+
+# Install devscripts
+echo "Installing devscripts..."
+apt-get install -y devscripts
 
 cd pve-common
 

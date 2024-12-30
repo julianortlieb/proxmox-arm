@@ -22,4 +22,4 @@ jobs:
 
       - name: Build the project
         run: |
-          docker run --rm --platform linux/arm64 -v ${{ github.workspace }}:/workspace -w /workspace debian:latest build-arm.sh
+          docker run --rm --platform linux/arm64 -v ${{ github.workspace }}:/workspace -w /workspace debian:latest bash build-arm.sh
